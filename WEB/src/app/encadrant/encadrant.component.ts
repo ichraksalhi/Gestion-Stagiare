@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-encadrant',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EncadrantComponent implements OnInit {
 
-  constructor() { }
+  board: string;
+  errorMessage: string;
 
-  ngOnInit(): void {
+  constructor(private userService: UserService) { }
+
+  ngOnInit() {
+    this.userService.getPMBoard().subscribe(
+      data => {
+        this.board = data;
+      },
+      error => {
+        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
+      }
+    );
   }
-
 }

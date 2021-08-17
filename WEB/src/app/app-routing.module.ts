@@ -5,8 +5,9 @@ import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { UserComponent } from './user/user.component';
-import { PmComponent } from './pm/pm.component';
+
 import { HRComponent } from './hr/hr.component';
+import { EncadrantComponent } from './encadrant/encadrant.component';
 //import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
@@ -23,8 +24,8 @@ const routes: Routes = [
         component: HRComponent      
     },
     {
-        path: 'pm',
-        component: PmComponent
+        path: 'encadrant',
+        component: EncadrantComponent
     },
     
     {

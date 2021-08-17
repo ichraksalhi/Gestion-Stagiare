@@ -7,9 +7,9 @@ import { Observable } from 'rxjs';
 })
 export class UserService {
 
-  private userUrl = 'http://localhost:8080/api/test/user';
-  private pmUrl = 'http://localhost:8080/api/test/pm';
-  private HRUrl = 'http://localhost:8080/api/test/admin';
+  private userUrl = 'http://localhost:8083/api/test/user';
+  private encadrantUrl = 'http://localhost:8083/api/test/pm';
+  private HRUrl = 'http://localhost:8083/api/test/admin';
 
   constructor(private http: HttpClient) { }
 
@@ -18,7 +18,7 @@ export class UserService {
   }
 
   getPMBoard(): Observable<string> {
-    return this.http.get(this.pmUrl, { responseType: 'text' });
+    return this.http.get(this.encadrantUrl, { responseType: 'text' });
   }
 
   getHRBoard(): Observable<string> {

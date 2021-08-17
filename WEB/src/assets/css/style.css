@@ -9901,10 +9901,10 @@ button.bg-dark:focus {
   color: #ffffff !important; }
 
 .text-primary, .list-wrapper .completed .remove {
-  color: #b66dff !important; }
+  color: #090ba1 !important; }
 
 a.text-primary:hover, .list-wrapper .completed a.remove:hover, a.text-primary:focus, .list-wrapper .completed a.remove:focus {
-  color: #9021ff !important; }
+  color: #090ba1 !important; }
 
 .text-secondary, .list-wrapper .remove {
   color: #c3bdbd !important; }
@@ -10420,14 +10420,14 @@ address p {
   margin-bottom: 0; }
 
 .blockquote-primary {
-  border-color: #b66dff; }
+  border-color: #11079c; }
   .blockquote-primary .blockquote-footer {
-    color: #b66dff; }
+    color: #11079c; }
 
 .blockquote-secondary {
-  border-color: #c3bdbd; }
+  border-color: #11079c; }
   .blockquote-secondary .blockquote-footer {
-    color: #c3bdbd; }
+    color: #11079c; }
 
 .blockquote-success {
   border-color: #1bcfb4; }
@@ -10507,7 +10507,7 @@ code {
     margin-bottom: 0; }
 
 .page-title {
-  color: #343a40;
+  color: #031d36;
   font-size: 1.125rem;
   margin-bottom: 0; }
   .page-title .page-title-icon {
@@ -10717,7 +10717,7 @@ code {
 
 .bg-gradient-primary {
   background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff)) !important;
-  background: linear-gradient(to right, #da8cff, #9a55ff) !important; }
+  background: linear-gradient( 90deg, #2caf93 35%,  #1d4d91 100%) !important; }
 
 .bg-gradient-secondary {
   background: -webkit-gradient(linear, left top, right top, from(#e7ebf0), to(#868e96)) !important;
@@ -10725,7 +10725,7 @@ code {
 
 .bg-gradient-success {
   background: -webkit-gradient(linear, left top, right top, from(#84d9d2), to(#07cdae)) !important;
-  background: linear-gradient(to right, #84d9d2, #07cdae) !important; }
+  background: linear-gradient( 90deg, #76c5b4 35%,  #2c548b 100%) !important; }
 
 .bg-gradient-info {
   background: -webkit-gradient(linear, left top, right top, from(#90caf9), color-stop(99%, #047edf)) !important;
@@ -11706,7 +11706,7 @@ code {
 /* gradient buttons */
 .btn-gradient-primary {
   background: -webkit-gradient(linear, left top, right top, from(#da8cff), to(#9a55ff));
-  background: linear-gradient(to right, #da8cff, #9a55ff);
+  background: linear-gradient( 90deg, #2caf93 35%,  #1d4d91 100%);
   border: 0;
   -webkit-transition: opacity 0.3s ease;
   transition: opacity 0.3s ease; }
@@ -12139,7 +12139,7 @@ code {
     color: #fff; }
   .card.bg-green-gradient {
     background: -webkit-gradient(linear, left top, right top, from(#24e8a6), to(#09cdd1));
-    background: linear-gradient(to right, #24e8a6, #09cdd1);
+    background: linear-gradient(to right, #8fddc3, #78cecf);
     color: #fff; }
   .card.card-no-shadow {
     -webkit-box-shadow: none;
@@ -12157,7 +12157,7 @@ code {
 
 .card-inverse-success {
   background: rgba(27, 207, 180, 0.2);
-  border: 1px solid #19bea6;
+  border: 1px solid #91cfc6;
   color: #159d89; }
 
 .card-inverse-info {

@@ -14,10 +14,11 @@ import { HomeComponent } from './home/home.component';
 import { HRComponent } from './hr/hr.component';
 import { EncadrantComponent } from './encadrant/encadrant.component';
 import { UserComponent } from './user/user.component';
-import { PmComponent } from './pm/pm.component';
+
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 
+//import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 
@@ -33,8 +34,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     HomeComponent,
     HRComponent,
     EncadrantComponent,
-    UserComponent,
-    PmComponent,
+    UserComponent
    
   ],
   imports: [
@@ -46,5 +46,6 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
   providers: [httpInterceptorProviders],
   
   bootstrap: [AppComponent]
+  //schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }
