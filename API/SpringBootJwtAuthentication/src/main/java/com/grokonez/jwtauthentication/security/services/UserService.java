@@ -1,2 +1,19 @@
-package com.grokonez.jwtauthentication.security.services;public class UserService {
+package com.grokonez.jwtauthentication.security.services;
+
+import com.grokonez.jwtauthentication.model.User;
+import com.grokonez.jwtauthentication.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+
+@Service
+public class UserService {
+
+    @Autowired
+    private UserRepository userRepository;
+
+    public List<User> getUsers(){
+        return userRepository.findAll();
+    }
 }
