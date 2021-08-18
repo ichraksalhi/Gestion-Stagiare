@@ -17,6 +17,8 @@ import { UserComponent } from './user/user.component';
 
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { UserService } from './user/user.service';
+
 
 //import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -41,9 +43,9 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [httpInterceptorProviders],
+  providers: [httpInterceptorProviders, UserService],
   
   bootstrap: [AppComponent]
   //schemas: [CUSTOM_ELEMENTS_SCHEMA ]

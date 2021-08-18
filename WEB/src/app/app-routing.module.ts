@@ -20,6 +20,11 @@ const routes: Routes = [
         component: UserComponent      
     },
     {
+        path: 'users/all',
+        component: UserComponent      
+    },
+
+    {
         path: 'hr',
         component: HRComponent      
     },

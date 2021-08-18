@@ -1,0 +1,5 @@
+.grid-container {
+    display: grid;
+    height: 400px;
+    align-content: center;
+  }
