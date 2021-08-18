@@ -17,6 +17,7 @@ import { UserComponent } from './user/user.component';
 
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { SujetComponent } from './sujet/sujet.component';
 
 //import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -34,7 +35,8 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     HomeComponent,
     HRComponent,
     EncadrantComponent,
-    UserComponent
+    UserComponent,
+    SujetComponent
    
   ],
   imports: [
@@ -42,6 +44,7 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     AppRoutingModule,
     FormsModule,
     HttpClientModule
+
   ],
   providers: [httpInterceptorProviders],
   
