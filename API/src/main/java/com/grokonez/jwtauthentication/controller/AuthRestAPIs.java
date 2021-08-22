@@ -1,10 +1,10 @@
 package com.grokonez.jwtauthentication.controller;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 import javax.validation.Valid;
 
+import com.grokonez.jwtauthentication.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.grokonez.jwtauthentication.message.request.LoginForm;
 import com.grokonez.jwtauthentication.message.request.SignUpForm;
@@ -50,6 +46,8 @@ public class AuthRestAPIs {
 
 	@Autowired
 	JwtProvider jwtProvider;
+
+
 
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginForm loginRequest) {
@@ -96,7 +94,7 @@ public class AuthRestAPIs {
 
 				break;
 			case "encadrant":
-				Role encadrantRole = roleRepository.findByName(RoleName.ROLE_ENCADRANT)
+				Role encadrantRole = roleRepository.findByName(RoleName. ROLE_ENCADRANT)
 						.orElseThrow(() -> new RuntimeException("Fail! -> Cause: User Role not find."));
 				roles.add(encadrantRole);
 

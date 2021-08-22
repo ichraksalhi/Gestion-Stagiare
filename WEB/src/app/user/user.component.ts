@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
+import { UserService } from '../services/user.service';
+import { SignUpInfo } from '../auth/signup-info';
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -7,9 +11,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserComponent implements OnInit {
 
-  constructor() { }
+  users : Observable<SignUpInfo[]>
 
-  ngOnInit(): void {
+  constructor( private userService : UserService, private router : Router ) { }
+
+  ngOnInit() {
+    this.reloadData();
+  }
+  reloadData() {
+    this.users = this.userService.getUserList();
   }
 
 }

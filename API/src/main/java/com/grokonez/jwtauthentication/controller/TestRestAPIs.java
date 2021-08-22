@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestRestAPIs {
 	
 	@GetMapping("/api/test/user")
-	@PreAuthorize("hasRole('USER') or hasRole('ADMIN')")
+	@PreAuthorize("hasRole('USER') or hasRole('RH')")
 	public String userAccess() {
 		return ">>> User Contents!";
 	}
@@ -21,7 +21,7 @@ public class TestRestAPIs {
 		return ">>> Project Management Board";
 	}
 	
-	@GetMapping("/api/test/HR")
+	@GetMapping("/api/test/admin")
 	@PreAuthorize("hasRole('HR')")
 	public String adminAccess() {
 		return ">>> HR Contents";
