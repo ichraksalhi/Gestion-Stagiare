@@ -15,13 +15,14 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   getUserBoard(): Observable<string> {
+
     return this.http.get(this.userUrl, { responseType: 'text' });
   }
 
   getPMBoard(): Observable<string> {
     return this.http.get(this.encadrantUrl, { responseType: 'text' });
   }
-
+                                                                   
   getHRBoard(): Observable<string> {
     return this.http.get(this.HRUrl, { responseType: 'text' });
   }
@@ -33,4 +34,10 @@ export class UserService {
   deleteUser(id: number): Observable<any> {
     return this.http.delete(`${this.HRUrl}/delete/${id}`, { responseType: 'text' });
   }
+
+  getUserDetail(id: number): Observable<any> {
+    return this.http.get(`${this.HRUrl}/detail/${id}`);
+  }
+  // amin affichage avec condition  etape 3
+
 }

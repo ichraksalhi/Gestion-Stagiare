@@ -17,9 +17,12 @@ import { UserComponent } from './user/user.component';
 
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 
 
@@ -37,12 +40,17 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     EncadrantComponent,
     UserComponent
    
+
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [httpInterceptorProviders],
   
