@@ -1,22 +1,44 @@
-<th></th>
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+  
+  <app-navbar></app-navbar>
+  <div> <p>- </p></div>
+  <div> <p>- </p></div>
+  
+  
+  
+  
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+  <app-sidebar></app-sidebar>  
 
 
-<div class="container" id="main-container">
-<div *ngFor="let user of users">
-
-<div class="container">
-    <div class="row text-center">
-
-        <div class="col-xl-3 col-sm-6 mb-5">
-            <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
-                <h5 class="mb-0">{{user.name}}</h5><span class="small text-uppercase text-muted">{{user.phone}}</span>
-                <ul class="social mb-0 list-inline mt-3">
-                </ul>
-            </div>
-        </div>
-
-        
+    <div class="panel-heading">
+      <h2>Liste Stagiaires</h2>
     </div>
-</div>
+    <th></th>
+
+        <div class="container" id="main-container">
+            <div *ngFor="let user of users">
+            
+            <div class="container">
+                <div class="row text-center">
+            
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                            <h5 class="mb-0">{{user.username}}</h5><span class="small text-uppercase text-muted">{{user.email}}</span>
+                            <ul class="social mb-0 list-inline mt-3">
+                            </ul>
+                        </div>
+                    </div>
+            
+                    
+                </div>
+            </div>
+            </div>
+            
+  
+  </div>
+
 </div>
 </div>

@@ -24,7 +24,7 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long user_id;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -52,6 +52,26 @@ public class User{
     @Size(min=6, max = 100)
     private String phone;
 
+    @ManyToMany
+    @JoinTable(
+            name = "user_stage",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "stage_id"))
+    private Set<Stage> stages;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_technologies",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "technologie_id"))
+    private Set<Technologie> technologis;
+
+    @OneToMany
+    @JoinTable(
+            name = "user_stage",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "sujet_id"))
+    private Set<Sujet> sujets;
 
     private Status status ;
 
@@ -79,11 +99,11 @@ public class User{
     }
 
     public Long getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getUsername() {
