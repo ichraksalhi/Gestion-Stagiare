@@ -5,7 +5,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Table(name = "stages", uniqueConstraints = {
@@ -19,7 +19,7 @@ import java.util.Set;
 public class Stage {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long stage_id;
+    private Long id;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -27,13 +27,16 @@ public class Stage {
 
     @NotBlank
     @Size(min=20, max = 500)
+    @Column(name="description")
     private String description;
 
     @NotBlank
     @DateTimeFormat
-    private DateTimeFormat date;
+    @Column(name="date")
+    private Date date;
 
     @NotBlank
+    @Column(name="periode")
     private int periode;
 
     @ManyToMany
@@ -41,13 +44,17 @@ public class Stage {
             name = "stage_user",
             joinColumns = @JoinColumn(name = "stage_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private Set<User> users;
+    private Set<User> users = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="sujet_id", nullable=false)
+    private Sujet sujet;
 
     public Stage() {
     }
 
-    public Stage(Long id, String name, String description, DateTimeFormat date, int periode) {
-        this.stage_id = id;
+    public Stage(Long id, String name, String description, Date date, int periode) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.date = date;
@@ -55,7 +62,7 @@ public class Stage {
     }
 
     public Long getId() {
-        return stage_id;
+        return id;
     }
 
     public String getName() {
@@ -66,7 +73,7 @@ public class Stage {
         return description;
     }
 
-    public DateTimeFormat getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -75,7 +82,7 @@ public class Stage {
     }
 
     public void setId(Long id) {
-        this.stage_id = id;
+        this.id = id;
     }
 
     public void setName(String name) {
@@ -86,7 +93,7 @@ public class Stage {
         this.description = description;
     }
 
-    public void setDate(DateTimeFormat date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

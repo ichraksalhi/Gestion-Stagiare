@@ -5,6 +5,9 @@ import org.springframework.format.annotation.DateTimeFormat;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "technologies", uniqueConstraints = {
@@ -18,7 +21,7 @@ import javax.validation.constraints.Size;
 public class Technologie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long technologie_id;
+    private Long id;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -26,28 +29,45 @@ public class Technologie {
 
     @NotBlank
     @Size(min=20, max = 500)
+    @Column(name="description")
     private String description;
 
     @NotBlank
     @DateTimeFormat
-    private DateTimeFormat date;
+    @Column(name="date")
+    private Date date;
+
+    @ManyToMany
+    @JoinTable (
+            name = "technologie_sujet",
+            joinColumns = @JoinColumn(name = "technologie_id"),
+            inverseJoinColumns = @JoinColumn(name = "sujet_id"))
+    private Set<Sujet> sujets = new HashSet<>();
+
+
+    @ManyToMany
+    @JoinTable (
+            name = "technologie_user",
+            joinColumns = @JoinColumn(name = "technologie_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> users = new HashSet<>();
 
     public Technologie() {
     }
 
-    public Technologie(Long id, String name, String description, DateTimeFormat date) {
-        this.technologie_id = id;
+    public Technologie(Long id, String name, String description, Date date) {
+        this.id = id;
         this.name = name;
         this.description = description;
         this.date = date;
     }
 
     public Long getId() {
-        return technologie_id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.technologie_id = id;
+        this.id = id;
     }
 
     public String getName() {
@@ -66,11 +86,11 @@ public class Technologie {
         this.description = description;
     }
 
-    public DateTimeFormat getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(DateTimeFormat date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 }

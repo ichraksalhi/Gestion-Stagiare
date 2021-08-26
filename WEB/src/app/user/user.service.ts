@@ -30,6 +30,6 @@ export class UserService {
   }
 
   public getUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.api +'/users/all');
+    return this.http.get<User[]>(this.api +'/users/active');
   }
 }

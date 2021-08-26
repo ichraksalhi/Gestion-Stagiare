@@ -16,4 +16,7 @@ public class UserService {
     public List<User> getUsers(){
         return userRepository.findAll();
     }
+
+    public List<User> getUserByDateStage() { return userRepository.getUserByDateStage();
+    }
 }

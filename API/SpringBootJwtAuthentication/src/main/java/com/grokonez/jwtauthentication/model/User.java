@@ -24,10 +24,12 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long user_id;
 
     @NotBlank
     @Size(min=3, max = 50)
+    @Column(name="name")
     private String name;
 
     @NotBlank
@@ -46,44 +48,42 @@ public class User{
 
     @NotBlank
     @Size(min=6, max = 100)
+    @Column(name="cin")
     private String cin;
 
     @NotBlank
     @Size(min=6, max = 100)
+    @Column(name="phone")
     private String phone;
+
+    @Column(name="status")
+    private Status status ;
 
     @ManyToMany
     @JoinTable(
             name = "user_stage",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "stage_id"))
-    private Set<Stage> stages;
+    private Set<Stage> stages= new HashSet<>();
 
     @ManyToMany
     @JoinTable(
             name = "user_technologies",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "technologie_id"))
-    private Set<Technologie> technologis;
+    private Set<Technologie> technologies= new HashSet<>();
 
-    @OneToMany
-    @JoinTable(
-            name = "user_stage",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "sujet_id"))
-    private Set<Sujet> sujets;
-
-    private Status status ;
-
-
-
+    @OneToMany(mappedBy = "user")
+    private Set<Sujet> sujets = new HashSet<>();
 
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", 
-    	joinColumns = @JoinColumn(name = "user_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "role_id"))
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+
 
     public User() {}
 

@@ -3,6 +3,8 @@ package com.grokonez.jwtauthentication.model;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "sujets", uniqueConstraints = {
@@ -16,7 +18,7 @@ import javax.validation.constraints.Size;
 public class Sujet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long sujet_id;
+    private Long id;
 
     @NotBlank
     @Size(min=3, max = 50)
@@ -24,23 +26,39 @@ public class Sujet {
 
     @NotBlank
     @Size(min=20, max = 500)
+    @Column(name="description")
     private String description;
 
-    public Sujet() {
-    }
+
+    @ManyToMany
+    @JoinTable (
+            name = "sujet_technologie",
+            joinColumns = @JoinColumn(name = "sujet_id"),
+            inverseJoinColumns = @JoinColumn(name = "technologie_id"))
+    private Set<Technologie> technologies = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name="user_id", nullable = false)
+    private User user;
+
+    @OneToMany(mappedBy = "sujet")
+    private Set<Stage> stages;
+
+
+
 
     public Sujet(Long id, String name, String description) {
-        this.sujet_id = id;
+        this.id = id;
         this.name = name;
         this.description = description;
     }
 
     public Long getId() {
-        return sujet_id;
+        return id;
     }
 
     public void setId(Long id) {
-        this.sujet_id = id;
+        this.id = id;
     }
 
     public String getName() {

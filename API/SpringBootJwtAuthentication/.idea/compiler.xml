@@ -10,10 +10,14 @@
         <module name="SpringBootJwtAuthentication" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SpringBootJwtAuthentication" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="SpringBootJwtAuthentication" options="-parameters" />
+      <module name="spring-security-jwt-example" options="-parameters" />
     </option>
   </component>
 </project>

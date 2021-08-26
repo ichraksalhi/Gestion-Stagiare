@@ -24,4 +24,7 @@ public class UserController {
         return userService.getUsers();
     }
 
+    @GetMapping("/active")
+    public List<User> getUserByDateStage(){ return userService.getUserByDateStage();}
+
 }
