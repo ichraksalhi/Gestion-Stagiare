@@ -1,13 +1,16 @@
 package com.grokonez.jwtauthentication.model;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "sujets", uniqueConstraints = {
+@Table(name = "technologies", uniqueConstraints = {
         @UniqueConstraint(columnNames = {
                 "name"
         }),
@@ -15,7 +18,7 @@ import java.util.Set;
                 "id"
         })
 })
-public class Sujet {
+public class Technologie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -29,28 +32,34 @@ public class Sujet {
     @Column(name="description")
     private String description;
 
+    @NotBlank
+    @DateTimeFormat
+    @Column(name="date")
+    private Date date;
 
     @ManyToMany
     @JoinTable (
-            name = "sujet_technologie",
-            joinColumns = @JoinColumn(name = "sujet_id"),
-            inverseJoinColumns = @JoinColumn(name = "technologie_id"))
-    private Set<Technologie> technologies = new HashSet<>();
-
-    @ManyToOne
-    @JoinColumn(name="user_id", nullable = false)
-    private User user;
-
-    @OneToMany(mappedBy = "sujet")
-    private Set<Stage> stages;
+            name = "technologie_sujet",
+            joinColumns = @JoinColumn(name = "technologie_id"),
+            inverseJoinColumns = @JoinColumn(name = "sujet_id"))
+    private Set<Sujet> sujets = new HashSet<>();
 
 
+    @ManyToMany
+    @JoinTable (
+            name = "technologie_user",
+            joinColumns = @JoinColumn(name = "technologie_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private Set<User> users = new HashSet<>();
 
+    public Technologie() {
+    }
 
-    public Sujet(Long id, String name, String description) {
+    public Technologie(Long id, String name, String description, Date date) {
         this.id = id;
         this.name = name;
         this.description = description;
+        this.date = date;
     }
 
     public Long getId() {
@@ -75,5 +84,13 @@ public class Sujet {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 }

@@ -21,6 +21,11 @@ const routes: Routes = [
         component: UserComponent      
     },
     {
+        path: 'users/active',
+        component: UserComponent      
+    },
+
+    {
         path: 'hr',
         component: HRComponent      
     },

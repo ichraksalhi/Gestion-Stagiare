@@ -24,10 +24,12 @@ public class User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @Column(name="id")
+    private Long user_id;
 
     @NotBlank
     @Size(min=3, max = 50)
+    @Column(name="name")
     private String name;
 
     @NotBlank
@@ -46,22 +48,42 @@ public class User{
 
     @NotBlank
     @Size(min=6, max = 100)
+    @Column(name="cin")
     private String cin;
 
     @NotBlank
     @Size(min=6, max = 100)
+    @Column(name="phone")
     private String phone;
 
-
+    @Column(name="status")
     private Status status ;
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_stage",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "stage_id"))
+    private Set<Stage> stages= new HashSet<>();
+
+    @ManyToMany
+    @JoinTable(
+            name = "user_technologies",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "technologie_id"))
+    private Set<Technologie> technologies= new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    private Set<Sujet> sujets = new HashSet<>();
 
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "user_roles", 
-    	joinColumns = @JoinColumn(name = "user_id"), 
-    	inverseJoinColumns = @JoinColumn(name = "role_id"))
-
+    @JoinTable(name = "user_roles",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles = new HashSet<>();
+
+
 
     public User() {}
 
@@ -77,11 +99,11 @@ public class User{
     }
 
     public Long getId() {
-        return id;
+        return user_id;
     }
 
     public void setId(Long id) {
-        this.id = id;
+        this.user_id = id;
     }
 
     public String getUsername() {
