@@ -18,6 +18,8 @@ import { UserComponent } from './user/user.component';
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { UserService } from './user/user.service';
+import { ToastModule } from 'primeng/toast';
+
 
 import { SujetComponent } from './sujet/sujet.component';
 
@@ -45,7 +47,8 @@ import { SujetComponent } from './sujet/sujet.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule
   ],
   providers: [httpInterceptorProviders, UserService],
 
