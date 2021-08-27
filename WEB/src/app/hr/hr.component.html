@@ -1,3 +1,77 @@
 <h4>Content from Server</h4>
 {{board}}
-{{errorMessage}}
+{{errorMessage}} 
+
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+<app-navbar></app-navbar>
+<div> <p>- </p></div>
+<div> <p>- </p></div>
+
+<div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+
+
+<div class="main-panel">
+
+<div class="page-header">
+  <h3 class="page-title">
+    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+      <i class="mdi mdi-home"></i>
+    </span> Dashboard
+  </h3>
+  <nav aria-label="breadcrumb">
+    <ul class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">
+        <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h2>user  List</h2>
+    </div>
+
+      <table class="table table-striped">       
+     
+      
+          <tr *ngFor="let user of users | async">
+            <div class="row">
+             
+            
+    
+            </div>
+            <div class="row">
+                <div class="col-md-10 stretch-card grid-margin">
+                  <div class="card bg-gradient-danger card-img-holder text-white">
+                    <div class="card-body">
+                      <img src="assets/images/dashboard/circle.svg" class="card-img-absolute" alt="circle-image" />
+                      <h4 class="font-weight-normal mb-6"> <td>{{user.name}}</td> <i class="mdi mdi-chart-line mdi-24px float-right"></i>
+                      </h4>
+                      <h2 class="mb-10"> <td>{{user.username}}</td>  </h2>
+                      <h6 class="card-text">  <td>{{user.email}}</td> </h6>
+                     
+                      <td>{{user.role}}</td>
+                    
+                      <td>{{user.cin}}</td>
+                      <td>{{user.phone}}</td> 
+                      
+                    </div>
+                        
+            <td><button (click)="deleteUser(user.id)"   class="btn btn-danger">Delete</button>
+                <button   class="btn btn-info" style="margin-left: 10px">Update</button>
+                <button   (click)="getUserDetail(user.id)" class="btn btn-info" style="margin-left: 10px">Details</button>
+            </td>
+                  </div>
+                </div>
+                </div> 
+          </tr>
+       
+      </table>
+   
+  </div>
+  
+  
