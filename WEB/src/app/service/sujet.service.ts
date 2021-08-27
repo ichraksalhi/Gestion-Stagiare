@@ -11,6 +11,10 @@ export class SujetService {
   API = 'http://localhost:8083';
 
   public addSujet(sujetData: any){
-    return this.Http.post(this.API + '/sujets/add', sujetData)
+    return this.Http.post(this.API + '/sujets/add', sujetData);
+  }
+
+  public getTechno(){
+    return this.Http.get(this.API + '/technologies/all');
   }
 }

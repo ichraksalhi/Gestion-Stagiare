@@ -2,8 +2,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { TokenStorageService } from '../auth/token-storage.service';
 import { User } from './user';
-import { UserService } from './user.service';
-import { NgForm } from '@angular/forms';
+import { UserService } from '../service/user.service';
 
 
 
@@ -17,6 +16,7 @@ export class UserComponent implements OnInit {
 
   public users: User[];
 
+
   constructor(private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit() {
@@ -27,6 +27,7 @@ export class UserComponent implements OnInit {
     }
     this.getUsers();
   }
+  
 
   public getUsers(): void {
     this.userService.getUsers().subscribe(

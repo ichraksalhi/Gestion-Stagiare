@@ -12,9 +12,9 @@
   <div class="container-fluid page-body-wrapper">
 <app-sidebar></app-sidebar>
 
-    <div class="card mt-5" style="align-items: center;">
+
       <h1>Ajouter un Sujet</h1>
-    </div>
+
   
     <div class="card mt-5" style="padding: 20px;">
       <form #sujetForm="ngForm" (ngSubmit)="add(sujetForm)" >
@@ -27,14 +27,21 @@
           <input type="text" #sujetDescription (ngModel)="sujetDescription" name="sujetDescription" id="sujetDescription" class="form-control">
         </div>
         <div class="form-group">
-          <label for="percentage">Technologies :</label>
-          <input type="text" #technologies (ngModel)="technologies" name="technologies" id="technologies" class="form-control">
+          <label for="technologies">Technologies :</label><tr></tr>
+          <p-multiSelect [options]="allTechnologies" #technologies (ngModel)="technologies" optionLabel="name"></p-multiSelect>
         </div>
+        <!--<div class="form-group">
+          <label for="collaborateurs">Collaborateurs :</label><tr></tr>
+          <p-multiSelect [options]="allStages" #stages (ngModel)="stages" optionLabel="name" ></p-multiSelect>
+        </div>-->
 
         <div class="form-group">
           <input type="submit" value="Ajouter" class="btn btn-primary w-100">
         </div>
+
       </form>
+
+
 
     </div>
   </div>
