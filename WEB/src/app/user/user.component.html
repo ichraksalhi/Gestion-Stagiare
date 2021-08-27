@@ -1,39 +1,44 @@
-<div class="panel panel-primary">
+<div class="container-scroller">
+    <!-- partial:partials/_navbar.html -->
+  
+  <app-navbar></app-navbar>
+  <div> <p>- </p></div>
+  <div> <p>- </p></div>
+  
+  
+  
+  
+    <!-- partial -->
+    <div class="container-fluid page-body-wrapper">
+  <app-sidebar></app-sidebar>  
+
+
     <div class="panel-heading">
-      <h2>Employee List</h2>
+      <h2>Liste Stagiaires</h2>
     </div>
-    <div class="panel-body">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>name</th>
-            <th>username</th>
-            <th>email</th>
-            <th>role</th>
-            <th>password</th>
-            <th>cin </th>
-            <th>phone</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let user of users | async">
-            <td>{{user.name}}</td>
-            <td>{{user.username}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.role}}</td>
-            <td>{{user.password}}</td>
-            <td>{{user.cin}}</td>
-            <td>{{user.phone}}</td>
+    <th></th>
+
+        <div class="container" id="main-container">
+            <div *ngFor="let user of users">
             
+            <div class="container">
+                <div class="row text-center">
             
-            <td><button  class="btn btn-danger">Delete</button>
-                <button  class="btn btn-info" style="margin-left: 10px">Update</button>
-                <button  class="btn btn-info" style="margin-left: 10px">Details</button>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+                    <div class="col-xl-3 col-sm-6 mb-5">
+                        <div class="bg-white rounded shadow-sm py-5 px-4"><img src="https://d19m59y37dris4.cloudfront.net/university/1-1-1/img/teacher-4.jpg" alt="" width="100" class="img-fluid rounded-circle mb-3 img-thumbnail shadow-sm">
+                            <h5 class="mb-0">{{user.username}}</h5><span class="small text-uppercase text-muted">{{user.email}}</span>
+                            <ul class="social mb-0 list-inline mt-3">
+                            </ul>
+                        </div>
+                    </div>
+            
+                    
+                </div>
+            </div>
+            </div>
+            
+  
   </div>
-  
-  
+
+</div>
+</div>

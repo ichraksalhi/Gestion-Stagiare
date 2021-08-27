@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from '../services/user.service';
+import { UserService } from '../user/user.service';
 
 @Component({
   selector: 'app-encadrant',
@@ -24,4 +24,3 @@ export class EncadrantComponent implements OnInit {
     );
   }
 }
-// etape 4 appel de fct li mawjouda f service ici  
