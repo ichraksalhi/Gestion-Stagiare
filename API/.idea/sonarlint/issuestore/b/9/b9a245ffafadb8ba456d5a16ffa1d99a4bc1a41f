@@ -1,0 +1,13 @@
+
+<
+java:S14525"&Remove usage of generic wildcard type.(ûÍ¢Ò
+A
+java:S1452C"&Remove usage of generic wildcard type.(’üÚŸˇˇˇˇˇ
+z
+java:S1128"_Remove this unused import 'com.grokonez.jwtauthentication.exception.ResourceNotFoundException'.(¶≠õî˙ˇˇˇˇ
+z
+java:S1192\"dDefine a constant instead of duplicating this literal "Fail! -> Cause: User Role not find." 3 times.(’‡Ìª
+@
+java:S5411D"*Use the primitive boolean expression here.(á÷Ö≤
+@
+java:S5411I"*Use the primitive boolean expression here.(åâ”å
