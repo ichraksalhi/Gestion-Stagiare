@@ -1,0 +1,11 @@
+SELECT * FROM users, stages, user_stage
+WHERE user_stage.stage_id=stages_id
+AND user_stage.user_id=users.id
+AND YEAR(stages.date)=YEAR(DATE( NOW() ))
+AND stages.periode>DATE(NOW))-stages.date
+
+
+insert into stages values(2,'2021-10-01','decri2','stage2',3,1);
+
+
+select * from users, stages, user_stage where user_stage.stage_id=stages.id and user_stage.user_id=users.id and extract(year from stages.date)=extract(year from (now())) and stages.periode> extract (month from now())- extract (month from stages.date)

@@ -1,0 +1,51 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+<app-navbar></app-navbar>
+<div> <p>- </p></div>
+<div> <p>- </p></div>
+
+
+
+
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>
+
+
+      <h1>Ajouter un Sujet</h1>
+
+  
+    <div class="card mt-5" style="padding: 20px;">
+      <form #sujetForm="ngForm" (ngSubmit)="add(sujetForm)" >
+        <div class="form-group">
+          <label for="sujetname">Titre Sujet  :</label>
+          <input type="text" #sujetname (ngModel)="sujetname" name="sujetname" id="sujetname" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="address">Description Sujet :</label>
+          <input type="text" #sujetDescription (ngModel)="sujetDescription" name="sujetDescription" id="sujetDescription" class="form-control">
+        </div>
+        <div class="form-group">
+          <label for="technologies">Technologies :</label><tr></tr>
+          <p-multiSelect [options]="allTechnologies" #technologies (ngModel)="technologies" optionLabel="name"></p-multiSelect>
+        </div>
+        <!--<div class="form-group">
+          <label for="collaborateurs">Collaborateurs :</label><tr></tr>
+          <p-multiSelect [options]="allStages" #stages (ngModel)="stages" optionLabel="name" ></p-multiSelect>
+        </div>-->
+
+        <div class="form-group">
+          <input type="submit" value="Ajouter" class="btn btn-primary w-100">
+        </div>
+
+      </form>
+
+
+
+    </div>
+  </div>
+</div>
+
+  
+  
