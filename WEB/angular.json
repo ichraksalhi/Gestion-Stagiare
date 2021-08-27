@@ -27,7 +27,10 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "node_modules/primeicons/primeicons.css",
+              "node_modules/primeng/resources/themes/saga-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": [],
             "vendorChunk": true,
@@ -135,3 +138,4 @@
     "analytics": "772947e3-9e2b-4745-b00d-d0da6e759c10"
   }
 }
+

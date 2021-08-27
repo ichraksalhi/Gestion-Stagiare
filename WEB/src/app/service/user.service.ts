@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { User } from './user';
+import { User } from '../user/user';
 
 
 
@@ -31,5 +31,9 @@ export class UserService {
 
   public getUsers(): Observable<User[]>{
     return this.http.get<User[]>(this.api +'/users/active');
+  }
+
+  public getAllUsers(): Observable<User[]>{
+    return this.http.get<User[]>(this.api +'/users/all');
   }
 }
