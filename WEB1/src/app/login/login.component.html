@@ -1,0 +1,69 @@
+<div class="container-scroller">
+  <div class="container-fluid page-body-wrapper full-page-wrapper">
+    <div class="content-wrapper d-flex align-items-center auth">
+      <div class="row flex-grow">
+        <div class="col-lg-4 mx-auto">
+          <div class="auth-form-light text-left p-5">
+            <div class="brand-logo">
+              <img src="../../assets/images/Logo_Talan_principal.png">
+            </div>
+            <h4>Hello! let's get started</h4>
+            
+
+
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+  <a href="home" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">START !</a>
+  
+</div>
+
+
+<ng-template #loggedOut>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Login</button>
+        <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+          Login failed: {{errorMessage}}
+        </div>
+      </div>
+
+<!--     
+        <ngx-recaptcha2 #captchaElem
+          [siteKey]="siteKey"
+         >
+        </ngx-recaptcha2>
+    -->
+    </form>
+    <hr />
+    <p>Don't have an account?</p>
+    <a href="signup" class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn">Sign Up</a>
+  </div>
+</ng-template>
+
+</div>
+</div>
+</div>
+</div>
+<!-- content-wrapper ends -->
+</div>
+<!-- page-body-wrapper ends -->
+</div>
