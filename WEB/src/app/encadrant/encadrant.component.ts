@@ -24,3 +24,4 @@ export class EncadrantComponent implements OnInit {
     );
   }
 }
+// etape 4 appel de fct li mawjouda f service ici  
