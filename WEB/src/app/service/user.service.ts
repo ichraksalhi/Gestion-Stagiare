@@ -34,9 +34,6 @@ export class UserService {
     return this.http.get<User[]>(this.api +'/users/active');
   }
 
-  public getAllUsers(): Observable<User[]>{
-    return this.http.get<User[]>(this.api +'/users/all');
-  }
   getUserList(): Observable<any> {
     return this.http.get(`${this.HRUrl}/afficher`);
   }

@@ -23,6 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "@ngbmodule/material-carousel": "^0.7.1",
     "bootstrap": "^5.1.0",
+    "cors": "^2.8.5",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^7.0.0",
     "ngx-toastr": "^14.1.0",

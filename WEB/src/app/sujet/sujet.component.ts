@@ -34,7 +34,6 @@ export class SujetComponent implements OnInit{
       authorities: this.token.getAuthorities()
     };
     this.getTechno();
-    this.getAllUsers();
   }
   public getTechno(): void {
     this.technologieService.getTechno().subscribe(
@@ -48,17 +47,6 @@ export class SujetComponent implements OnInit{
     );
   }
 
-  public getAllUsers(): void {
-    this.userService.getAllUsers().subscribe(
-      (response: User[]) => {
-        this.allUsers = response;
-        console.log(this.allUsers);
-      },
-      (error: HttpErrorResponse) => {
-        alert(error.message);
-      }
-    );
-  }
 
   title = 'sujet';
 
