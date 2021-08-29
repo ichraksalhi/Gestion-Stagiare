@@ -19,10 +19,11 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
 import { UserService } from './service/user.service';
 import { ToastModule } from 'primeng/toast';
 import { MultiSelectModule } from 'primeng/multiselect';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 import { SujetComponent } from './sujet/sujet.component';
@@ -59,9 +60,11 @@ import { StageComponent } from './stage/stage.component';
     HttpClientModule,
     ToastModule,
     MultiSelectModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgbModule
   ],
-  providers: [httpInterceptorProviders, UserService],
+  providers: [httpInterceptorProviders],
 
   bootstrap: [AppComponent],
 

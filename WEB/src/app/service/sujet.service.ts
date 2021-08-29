@@ -8,7 +8,7 @@ export class SujetService {
 
   constructor(private Http : HttpClient) { }
 
-  API = 'http://localhost:8083';
+  API = 'http://localhost:8080';
 
   public addSujet(sujetData: any){
     return this.Http.post(this.API + '/sujets/add', sujetData);

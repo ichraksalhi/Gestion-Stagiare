@@ -11,7 +11,7 @@ export class TechnologieService {
 
   constructor(private http: HttpClient) { }
 
-  api = 'http://localhost:8083';
+  api = 'http://localhost:8080';
 
 
   public getTechno(): Observable<Technologie[]>{

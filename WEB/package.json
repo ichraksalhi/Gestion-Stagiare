@@ -20,6 +20,8 @@
     "@angular/platform-browser": "~12.2.3",
     "@angular/platform-browser-dynamic": "~12.2.3",
     "@angular/router": "~12.2.3",
+    "@ng-bootstrap/ng-bootstrap": "^10.0.0",
+    "@ngbmodule/material-carousel": "^0.7.1",
     "bootstrap": "^5.1.0",
     "jquery": "^3.6.0",
     "ngx-bootstrap": "^7.0.0",
