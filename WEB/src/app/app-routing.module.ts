@@ -8,7 +8,6 @@ import { UserComponent } from './user/user.component';
 
 import { HRComponent } from './hr/hr.component';
 import { EncadrantComponent } from './encadrant/encadrant.component';
-//import { AdminComponent } from './admin/admin.component';
 
 const routes: Routes = [
     {
@@ -36,6 +35,7 @@ const routes: Routes = [
         path: 'signup',
         component: RegisterComponent
     },
+   
     {
         path: '',
         redirectTo: 'home',
