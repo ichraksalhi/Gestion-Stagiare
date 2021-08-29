@@ -1,0 +1,73 @@
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+<app-navbar></app-navbar>
+<div> <p>- </p></div>
+<div> <p>- </p></div>
+
+
+
+
+  <!-- partial -->
+  <div class="container-fluid page-body-wrapper">
+<app-sidebar></app-sidebar>  
+
+
+
+
+<div class="main-panel">
+
+
+  <!-- hetha dima 9bal content--> 
+
+  <div class="page-header">
+    <h3 class="page-title">
+      <span class="page-title-icon bg-gradient-primary text-white mr-2">
+        <i class="mdi mdi-home"></i>
+      </span> Dashboard
+    </h3>
+    <nav aria-label="breadcrumb">
+      <ul class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">
+          <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+<div *ngIf="info.token; else loggedOut">
+
+  <div class="col-md-12 stretch-card grid-margin">
+    <div class="card bg-gradient-success card-img-holder text-white">
+      <div class="card-body">
+  <h5 class="text-primary">Your Information</h5>
+
+  <blockquote class="blockquote blockquote-primary">
+
+  <p>
+
+    <strong>Username:</strong> {{info.username}}<br/>
+ 
+
+    <strong>Roles:</strong> {{info.authorities}}<br />
+   
+  </p>
+
+  </blockquote>
+  <button class="btn btn-block btn-gradient-primary btn-lg font-weight-medium auth-form-btn" (click)="logout()">Logout</button>
+</div>
+
+</div> 
+
+</div>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template> 
+
+</div>
+</div>
+
+
+
