@@ -6,7 +6,6 @@ import { UserService } from '../service/user.service';
 import { Router } from '@angular/router';
 import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap'; 
 import { ToastrService } from 'ngx-toastr';
-import { TokenStorageService } from '../auth/token-storage.service';
 
 @Component({
   selector: 'app-hr',

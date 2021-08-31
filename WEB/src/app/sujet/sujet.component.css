@@ -1,0 +1,12 @@
+h4 {
+    text-align: center;
+  }
+
+  p-multiselect {
+    max-width: 150px;
+    white-space: nowrap;
+  }
+
+  .form-group {
+      padding: 10pt;
+  }

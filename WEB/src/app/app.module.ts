@@ -32,6 +32,7 @@ import { NgModule } from '@angular/core';
 import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TechnologieComponent } from './technologie/technologie.component';
 import { StageComponent } from './stage/stage.component';
+import { SujetsComponent } from './sujets/sujets.component';
 
 
 
@@ -50,7 +51,8 @@ import { StageComponent } from './stage/stage.component';
     UserComponent,
     SujetComponent,
     TechnologieComponent,
-    StageComponent
+    StageComponent,
+    SujetsComponent
 
   ],
   imports: [
