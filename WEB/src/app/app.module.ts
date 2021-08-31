@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,9 +16,22 @@ import { UserComponent } from './user/user.component';
 
 
 import { httpInterceptorProviders } from './auth/auth-interceptor';
+import { UserService } from './service/user.service';
+import { ToastModule } from 'primeng/toast';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
-//import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+
+import { SujetComponent } from './sujet/sujet.component';
+import { NgModule } from '@angular/core';
+
+import {  CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { TechnologieComponent } from './technologie/technologie.component';
+import { StageComponent } from './stage/stage.component';
 
 
 
@@ -35,18 +47,27 @@ import { httpInterceptorProviders } from './auth/auth-interceptor';
     HomeComponent,
     HRComponent,
     EncadrantComponent,
-    UserComponent
-   
+    UserComponent,
+    SujetComponent,
+    TechnologieComponent,
+    StageComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule,
+    MultiSelectModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    NgbModule
   ],
   providers: [httpInterceptorProviders],
-  
-  bootstrap: [AppComponent]
-  //schemas: [CUSTOM_ELEMENTS_SCHEMA ]
+
+  bootstrap: [AppComponent],
+
+  schemas: [CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

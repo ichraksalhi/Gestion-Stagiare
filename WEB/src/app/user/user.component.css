@@ -1,0 +1,8 @@
+.grid{
+    padding:0; 
+    margin:12px;
+    display:grid; /* le fameux */
+    grid-template-columns:100px 100px 100px; /* 3 colonnes de largeur différente */
+    grid-template-rows:100px 100px; /* 2 rangées */
+    gap:12px 16px; /* <- écriture moderne  */
+  }

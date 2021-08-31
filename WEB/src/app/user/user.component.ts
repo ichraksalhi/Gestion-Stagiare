@@ -1,25 +1,45 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { TokenStorageService } from '../auth/token-storage.service';
+import { User } from './user';
+import { UserService } from '../service/user.service';
 
-import { UserService } from '../services/user.service';
-import { SignUpInfo } from '../auth/signup-info';
+
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  info: any;
 
-  users : Observable<SignUpInfo[]>
+  public users: User[];
 
-  constructor( private userService : UserService, private router : Router ) { }
+
+  constructor(private token: TokenStorageService, private userService: UserService) { }
 
   ngOnInit() {
-    this.reloadData();
+    this.info = {
+      token: this.token.getToken(),
+      username: this.token.getUsername(),
+      authorities: this.token.getAuthorities()
+    }
+    this.getUsers();
   }
-  reloadData() {
-    this.users = this.userService.getUserList();
+  
+
+  public getUsers(): void {
+    this.userService.getUsers().subscribe(
+      (response: User[]) => {
+        this.users = response;
+        console.log(this.users);
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
+
 
 }

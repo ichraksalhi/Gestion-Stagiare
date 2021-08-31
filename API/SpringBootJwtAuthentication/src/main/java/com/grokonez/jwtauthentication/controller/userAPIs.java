@@ -39,6 +39,11 @@ public class userAPIs {
 
     // affichage avec condition pour amin etape 1
     //etape 2 test avec postman
+    @Autowired
+    private com.grokonez.jwtauthentication.security.services.UserService userService;
+
+    @GetMapping("/affichestagaire")
+    public List<User>getByRoles_Name() { return userService.getByRoles_Name();}
 
     @DeleteMapping("/delete/{id}")
     public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId)

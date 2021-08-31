@@ -2,4 +2,130 @@
 {{board}}
 {{errorMessage}}
 
-<!-- thez nafs li mawjoud fi component hr   etape 5 -->
+<div class="container-scroller">
+  <!-- partial:partials/_navbar.html -->
+
+  <app-navbar></app-navbar>
+  <div> <p>- </p></div>
+  <div> <p>- </p></div>
+
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar></app-sidebar>
+
+
+    <div class="main-panel">
+
+      <div class="page-header">
+        <h3 class="page-title">
+    <span class="page-title-icon bg-gradient-primary text-white mr-2">
+      <i class="mdi mdi-home"></i>
+    </span> Dashboard
+        </h3>
+        <nav aria-label="breadcrumb">
+          <ul class="breadcrumb">
+            <li class="breadcrumb-item active" aria-current="page">
+              <span></span>Overview <i class="mdi mdi-alert-circle-outline icon-sm text-primary align-middle"></i>
+            </li>
+          </ul>
+        </nav>
+      </div>
+
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title"> Users list</h4>
+
+
+            <table class="table table-striped  ">
+              <thead>
+              <tr>
+                <th> User </th>
+                <th> name </th>
+                <th>  </th>
+                <th> first name  </th>
+                <th> phone </th>
+
+                <th> cin </th>
+                <th> delete </th>
+                <th> detail </th>
+
+              </tr>
+              </thead>
+
+              <tbody>
+
+
+              <tr>
+              <tr *ngFor="let user of users | async">
+                <td class="py-1">
+                  <img src="../../assets/images/faces-clipart/pic-3.png" alt="image" />
+                </td>
+                <td> {{user.name}}</td>
+                <td>
+                  <div class="progress">
+                    <div class="progress-bar bg-warning" role="progressbar" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                    </div>
+                  </div>
+                </td>
+                <td> {{user.username}}</td>
+
+                <td> {{user.cin}} </td>
+                <td>{{user.phone}} </td>
+
+                <td><button (click)="deleteUser(user.id)"   class="btn btn-danger"> Delete </button>
+                </td>
+                <td>
+                  <button    class="btn btn-gradient-primary" style="margin-left: 10px">Details</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+
+
+
+
+          </div>
+        </div>
+      </div>
+
+      <ng-template #contentDetails let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title text-info" id="modal-basic-title">User detail</h4>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="firstname" class="card-title text-info"  >name</label>
+              <div class="input-group">
+                <input id="fname" class="form-control"  readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="lastname" class="card-title text-info"  >username</label>
+              <div class="input-group">
+                <input id="lname" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="department" class="card-title text-info"  >cin</label>
+              <div class="input-group">
+                <input id="dept" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="card-title text-info"  >Email</label>
+              <div class="input-group">
+                <input id="email2" class="form-control" readonly>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="card-title text-info" > phone</label>
+              <div class="input-group">
+                <input id="cntry" class="form-control" readonly>
+              </div>
+            </div>
+          </form>
+
+        </div>
+
+      </ng-template>
